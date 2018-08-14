@@ -7,6 +7,10 @@ development:
   <<: *default
   database: team-yoda_development
 
+test:
+  <<: *default
+  database: team_yoda_test
+
 production:
   <<: *default
   database: team-yoda_production
