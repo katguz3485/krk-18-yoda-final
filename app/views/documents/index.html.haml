@@ -1,0 +1,10 @@
+%h1 Listing documents
+.container
+  .row
+    .col-sm.tile
+      - @documents.each do |document|
+        = image_tag "icon_document.png", class: "responsive"
+        %span= document.name
+        %span= document.issue_date
+      = link_to "New Document", new_document_path, class: "btn btn-xs btn-success"
+      .col-sm.tile

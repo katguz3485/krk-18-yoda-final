@@ -1,0 +1,39 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TeamYoda
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body
+    = render 'layouts/menu'
+    %header
+      - if user_signed_in?
+        %img.img-fluid{:alt => "", :src => "assets/header.png"}/
+      - else
+        #carouselExampleIndicators.carousel.slide{"data-ride" => "carousel"}
+          %ol.carousel-indicators
+            %li.active{"data-slide-to" => "0", "data-target" => "#carouselExampleIndicators"}
+            %li{"data-slide-to" => "1", "data-target" => "#carouselExampleIndicators"}
+          .carousel-inner{:role => "listbox"}
+            / Slide One - Set the background image for this slide in the line below
+            .carousel-item.active.slider_1
+              .carousel-caption.d-none.d-md-block
+            / Slide Two - Set the background image for this slide in the line below
+            .carousel-item.slider_2
+              .carousel-caption.d-none.d-md-block
+          %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+            %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+            %span.sr-only Previous
+          %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+            %span.carousel-control-next-icon{"aria-hidden" => "true"}
+            %span.sr-only Next
+    %section.py-5
+      .container
+        = yield
+    %footer.bg-dark
+      %img.img-fluid{:alt => "", :src => "assets/footer.png"}
+      .container
+        %p.m-0.text-center.text-white Copyright © Netguru 2018

@@ -21,6 +21,7 @@ gem 'binding_of_caller'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
 gem 'sidekiq'
+gem 'haml-rails', '~> 1.0'
 
 
 group :development, :test do

@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-sm-6
+      = form_for(@document) do |form|
+        .form-group
+          = form.label :file
+          = form.file_field :file, class:'form-control'
+        .form-group
+          = form.label :name
+          = form.text_field :name, class:'form-control'
+        .form-group
+          = form.label :document_type
+          = form.text_field :document_type,  class:'form-control'
+        .form-group
+          #datetimepicker1.date{"data-target-input" => "nearest"}
+            = form.label :issue_date
+            = form.text_field :issue_date, class: 'datetimepicker-input form-control', 'data-target-input' => '#datetimepicker1'
+            .input-group-append{"data-target" => "#datetimepicker1", "data-toggle" => "datetimepicker"}
+              .input-group-text
+                %i.fa.fa-calendar
+        .actions
+          = form.submit

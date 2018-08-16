@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @document.name
+%p
+  %strong Issue date:
+  = @document.issue_date
+= link_to 'Edit', edit_document_path(@document)
+|
+= link_to 'Back', documents_path

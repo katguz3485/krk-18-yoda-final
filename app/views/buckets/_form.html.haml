@@ -1,0 +1,14 @@
+= form_with(model: bucket, local: true) do |form|
+  - if bucket.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(bucket.errors.count, "error")
+        prohibited this bucket from being saved:
+      %ul
+        - bucket.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .actions
+    = form.submit
