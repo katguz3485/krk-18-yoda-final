@@ -33,7 +33,4 @@
     %section.py-5
       .container
         = yield
-    %footer.bg-dark
-      %img.img-fluid{:alt => "", :src => "assets/footer.png"}
-      .container
-        %p.m-0.text-center.text-white Copyright © Netguru 2018
+    = render 'shared/footer'
