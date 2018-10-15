@@ -3,6 +3,7 @@
 class BucketsController < ApplicationController
   before_action :set_bucket, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @buckets = Bucket.all
   end
@@ -41,7 +42,7 @@ class BucketsController < ApplicationController
   private
 
   def set_bucket
-    @bucket = Bucket.find(params[:id])
+    @bucket = current_user.buckets.find(params[:id])
   end
 
   def bucket_params

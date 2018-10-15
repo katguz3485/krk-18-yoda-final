@@ -12,6 +12,9 @@
           = form.label :document_type
           = form.text_field :document_type,  class:'form-control'
         .form-group
+          =form.label :bucket
+          =form.collection_select(:bucket_id, current_user.buckets, :id, :name, {prompt: 'Choose a bucket type'})
+        .form-group
           #datetimepicker1.date{"data-target-input" => "nearest"}
             = form.label :issue_date
             = form.text_field :issue_date, class: 'datetimepicker-input form-control', 'data-target-input' => '#datetimepicker1'

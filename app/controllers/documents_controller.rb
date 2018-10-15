@@ -4,20 +4,21 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   def index
-    @documents = Document.all
+    @documents = current_user.documents
+    @buckets = current_user.buckets
   end
 
   def show; end
 
   def new
     @document = Document.new
+
   end
 
   def edit; end
 
   def create
-    @document = Document.new(document_params)
-    @document.bucket = Bucket.first
+    @document = current_user.documents.new(document_params)
     if @document.save
       perform_upload_file_confirmation(@document.id)
       redirect_to dashboard_path
@@ -49,7 +50,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:name, :title, :content, :file, :document_type, :issue_date)
+    params.require(:document).permit(:name, :title, :content, :file, :document_type, :issue_date, :bucket_id)
   end
 
   def perform_upload_file_confirmation(document_id)

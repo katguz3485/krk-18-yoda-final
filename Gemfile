@@ -13,6 +13,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'devise'
 gem 'figaro'
 gem 'fog-aws', require: true
+gem 'fog'
 gem 'font-awesome-rails'
 gem 'haml-rails', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
@@ -31,6 +32,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platforms: %w(mri mingw x64_mingw)
   gem 'pry'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7'
 end
 
