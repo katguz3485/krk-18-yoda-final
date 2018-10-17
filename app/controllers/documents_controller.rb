@@ -2,23 +2,28 @@
 
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+
 
   def index
-    @documents = current_user.documents
+    @documents = Document.all
+    # @documents = current_user.documents
     @buckets = current_user.buckets
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @document = Document.new
 
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
-    @document = current_user.documents.new(document_params)
+    @document = Document.new(document_params)
     if @document.save
       perform_upload_file_confirmation(@document.id)
       redirect_to dashboard_path
@@ -28,9 +33,9 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html {redirect_to @document, notice: 'Document was successfully updated.'}
       else
-        format.html { render :edit }
+        format.html {render :edit}
       end
     end
   end
@@ -38,8 +43,8 @@ class DocumentsController < ApplicationController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to Documents_url, notice: 'Document was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to Documents_url, notice: 'Document was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 

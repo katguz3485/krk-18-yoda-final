@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'fog-aws', require: true
 gem 'fog'
 gem 'font-awesome-rails'
+gem 'gretel'
 gem 'haml-rails', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -22,12 +23,14 @@ gem 'momentjs-rails'
 gem 'omniauth-facebook'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
+gem 'pundit'
 gem 'rails', '~> 5.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'tether-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: %w(mri mingw x64_mingw)
