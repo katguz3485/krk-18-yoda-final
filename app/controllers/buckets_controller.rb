@@ -18,7 +18,7 @@ class BucketsController < ApplicationController
   def create
     @bucket = buckets.new(bucket_params)
     if @bucket.save
-      redirect_to root_path, notice: 'CREATED!'
+      redirect_to root_path, notice: I18n.t('shared.created', resource: 'Bucket')
     else
       render :new
     end
@@ -26,7 +26,7 @@ class BucketsController < ApplicationController
 
   def update
     if @bucket.update(bucket_params)
-      redirect_to root_path, notice: 'Updated!'
+      redirect_to root_path, notice: I18n.t('shared.updated', resource: 'Bucket')
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class BucketsController < ApplicationController
 
   def destroy
     if @bucket.destroy
-      redirect_to root_path, notice: 'Destroyed!'
+      redirect_to root_path, notice: I18n.t('shared.deleted', resource: 'Bucker')
     else
       render :index
     end

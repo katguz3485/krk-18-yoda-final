@@ -1,39 +1,36 @@
-# frozen_string_literal: true
-
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index]
-
+  before_action :authenticate_user!
 
   def index
     @documents = Document.all
-    # @documents = current_user.documents
-    @buckets = current_user.buckets
+    authorize @documents
+    @buckets = Bucket.all
   end
 
-  def show
+  def show;
   end
 
   def new
     @document = Document.new
-
   end
 
-  def edit
+  def edit;
   end
 
   def create
     @document = Document.new(document_params)
     if @document.save
       perform_upload_file_confirmation(@document.id)
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: I18n.t('shared.created', resource: 'Document')
     end
   end
 
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html {redirect_to @document, notice: 'Document was successfully updated.'}
+        authorize @document
+        format.html {redirect_to @document, notice: I18n.t('shared.updated', resource: 'Document')}
       else
         format.html {render :edit}
       end
@@ -42,8 +39,9 @@ class DocumentsController < ApplicationController
 
   def destroy
     @document.destroy
+    authorize @document
     respond_to do |format|
-      format.html {redirect_to Documents_url, notice: 'Document was successfully destroyed.'}
+      format.html {redirect_to Documents_url, notice: I18n.t('shared.deleted', resource: 'Document') }
       format.json {head :no_content}
     end
   end
