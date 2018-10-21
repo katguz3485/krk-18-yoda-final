@@ -36,17 +36,25 @@ en:
       name: Name
       url: URL
       document_type: Format
-      created_at: Created
+      created_at: Creation date
+      bucket_name: "Bucket"
+    message:
+      bucket_type: "Choose a bucket type"
   shared:
     created: "%{resource} has been created!"
     updated: "%{resource} has been updated!"
     deleted: "%{resource} has been deleted!"
-    actions: actions
+    actions:
+      actions: "View/Edit/Delete"
     edit: edit
     show: show
     delete: delete
     back: Back
     add_new_item: Add new one
+  buckets:
+    columns:
+      name: "Name"
+      user_id: "User id"
 
 
 

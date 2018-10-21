@@ -1,23 +1,11 @@
 # frozen_string_literal: true
 
 class BucketsController < ApplicationController
-  before_action :set_bucket, only: [:show, :edit, :update, :destroy]
-
-
-
-  def index
-    @buckets = Bucket.all
-  end
-
-  def new
-    @bucket = Bucket.new
-  end
-
-  def show; end
+  expose(:bucket, attibutes: :bucket_params)
+  expose :buckets, -> { Bucket.all }
 
   def create
-    @bucket = buckets.new(bucket_params)
-    if @bucket.save
+    if bucket.save
       redirect_to root_path, notice: I18n.t('shared.created', resource: 'Bucket')
     else
       render :new
@@ -25,7 +13,7 @@ class BucketsController < ApplicationController
   end
 
   def update
-    if @bucket.update(bucket_params)
+    if bucket.update(bucket_params)
       redirect_to root_path, notice: I18n.t('shared.updated', resource: 'Bucket')
     else
       render :edit
@@ -33,7 +21,7 @@ class BucketsController < ApplicationController
   end
 
   def destroy
-    if @bucket.destroy
+    if bucket.destroy
       redirect_to root_path, notice: I18n.t('shared.deleted', resource: 'Bucker')
     else
       render :index
@@ -41,10 +29,6 @@ class BucketsController < ApplicationController
   end
 
   private
-
-  def set_bucket
-    @bucket = Bucket.find(params[:id])
-  end
 
   def bucket_params
     params.require(:bucket).permit(:name, :user_id)

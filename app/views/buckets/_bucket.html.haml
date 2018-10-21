@@ -1,0 +1,15 @@
+%tr
+  %td= bucket.name
+  %td= bucket.user_id
+  %td
+    =link_to bucket_path(bucket), {title: t('shared.show')} do
+      %button.btn.btn-success
+        =fa_icon "search"
+    =link_to edit_bucket_path(bucket), {title: t('shared.edit')} do
+      %button.btn.btn-success
+        =fa_icon "edit"
+    = link_to bucket_path(bucket), {method: :delete, title: t('shared.delete')} do
+      %button.btn.btn-success
+        = fa_icon "trash"
+
+

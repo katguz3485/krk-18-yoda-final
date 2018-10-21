@@ -1,5 +1,6 @@
-class DocumentPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class DocumentPolicy < ApplicationPolicy
   def index?
     true
   end
@@ -21,5 +22,4 @@ class DocumentPolicy < ApplicationPolicy
   def document
     record
   end
-
 end

@@ -25,6 +25,7 @@ module TeamYoda
     config.load_defaults 5.2
     config.autoload_paths += %w(workers)
     config.autoload_paths += %w(services)
+    config.i18n.available_locales = [:en, :simple_form]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

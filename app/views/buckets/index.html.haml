@@ -1,17 +1,13 @@
 %h1 Listing buckets
-%table
+-breadcrumb :buckets, bucket
+%table.table.table-hover
   %thead
     %tr
-      %th Name
-      %th User id
-      %th{:colspan => "3"}
+      %th= t('buckets.columns.name')
+      %th= t('shared.actions.actions')
   %tbody
-    - @buckets.each do |bucket|
-      %tr
-        %td= bucket.name
-        %td= bucket.user_id
-        %td= link_to "Show", bucket
-        %td= link_to "Edit", edit_bucket_path(bucket)
-        %td= link_to "Destroy", bucket, method: :delete, data: { confirm: "Are you sure?" }
+    =render buckets
 %br/
-= link_to "New Bucket", new_bucket_path
+= link_to t('shared.add_new_item'), new_bucket_path, class: 'btn btn-success'
+
+

@@ -1,15 +1,15 @@
 %tr
-  %td = @document.name
-  %td = @document.document_type
-  %td = @document.bucket_id
+  %td= document.name
+  %td= document.document_type
+  %td= document.bucket.name
   %td
-    = link_to document_path(@document), {title: t('shared.show')} do
-      %button.btn.btn-default
+    = link_to document_path(document), {title: t('shared.show')} do
+      %button.btn.btn-success
         = fa_icon "search"
-    = link_to edit_document_path(@document), {title: t('shared.edit')} do
-      %button.btn.btn-default
+    = link_to edit_document_path(document), {title: t('shared.edit')} do
+      %button.btn.btn-success
         = fa_icon "edit"
-    = link_to document_path(@document), {method: :delete, title: t('shared.delete')} do
-      %button.btn.btn-default
+    = link_to document_path(document), {method: :delete, title: t('shared.delete')} do
+      %button.btn.btn-success
         = fa_icon "trash"
 

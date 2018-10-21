@@ -1,5 +1,6 @@
-class BucketPolicy
+# frozen_string_literal: true
 
+class BucketPolicy
   def index?
     true
   end
@@ -21,6 +22,4 @@ class BucketPolicy
   def bucket
     record
   end
-
-
 end

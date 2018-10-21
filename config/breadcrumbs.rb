@@ -1,20 +1,19 @@
+# frozen_string_literal: true
+
 crumb  :documents do
-  link t('documents'), documents_path
+  link t('documents'), dashboard_path
 end
 
-crumb :documents do |document|
+crumb :document do |document|
   link "#{document.name} #{document.url} #{document.document_type} #{document.created_at}", document_path(document)
   parent :documents
 end
 
-=begin
-
-crumb :students do
-  link t('navbar.students'), students_path
+crumb :buckets do
+  link t('buckets'), buckets_path
 end
 
-crumb :student do |student|
-  link "#{student.first_name} #{student.last_name}", student_path(student)
-  parent :students
+crumb :bucket do |bucket|
+  link "#{bucket.name} #{bucket.created_at}", bucket_path(bucket)
+  parent :buckets
 end
-=end

@@ -1,0 +1,8 @@
+= simple_form_for document do |f|
+  = f.input :file, as: :file
+  = f.input :name
+  = f.input :document_type
+  = f.input :bucket, collection: buckets
+  = f.input :issue_date, class: 'datetimepicker-input form-control', 'data-target-input' => '#datetimepicker1'
+  = f.button :submit, class: 'btn btn-success'
+
