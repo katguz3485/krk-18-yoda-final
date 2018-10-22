@@ -8,11 +8,12 @@ class DocumentsController < ApplicationController
   expose :buckets, -> { Bucket.all }
 
   def index
-    authorize documents
+    authorize document
   end
 
   def create
     if document.save
+      authorize document
       perform_upload_file_confirmation(document.id)
       redirect_to dashboard_path, notice: I18n.t('shared.created', resource: 'Document')
     end

@@ -30,7 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   documents:
     columns:
       name: Name
@@ -51,6 +50,7 @@ en:
     delete: delete
     back: Back
     add_new_item: Add new one
+    not_exist: "-"
   buckets:
     columns:
       name: "Name"

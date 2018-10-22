@@ -1,25 +1,15 @@
-# frozen_string_literal: true
-
 class DocumentPolicy < ApplicationPolicy
-  def index?
-    true
-  end
 
-  def create?
-    user.present?
-  end
-
-  def update?
-    return true if user.present? && user == document.user
-  end
-
-  def destroy?
-    return true if user.present? && user == document.user
-  end
+  permit_user_present_or_owner? :index, :update, :destroy
 
   private
 
   def document
     record
   end
+
+  def user_present_and_owner?
+    user.present? && user == document.user
+  end
+
 end

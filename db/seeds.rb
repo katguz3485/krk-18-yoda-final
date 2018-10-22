@@ -10,12 +10,4 @@ Bucket.create!(
   user_id: user.id  
 )
 
-Document.create!(
-  name: 'Document',
-  url: 'http://localhost:3000',
-  document_type: 'pdf',
-  issue_date: 2018-10-20,
-  bucket_id: bucket.id
-)
-
 puts "Seeds have been added."

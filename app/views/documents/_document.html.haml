@@ -1,7 +1,7 @@
 %tr
   %td= document.name
   %td= document.document_type
-  %td= document.bucket.name
+  %td= document.decorate.document_bucket_name
   %td
     = link_to document_path(document), {title: t('shared.show')} do
       %button.btn.btn-success

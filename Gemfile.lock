@@ -657,8 +657,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bootstrap-datepicker-rails (1.8.0.1)
-      railties (>= 3.0)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -672,14 +670,16 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     coderay (1.1.2)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.2)
     crass (1.0.4)
-    date_wrapper (0.1.2)
-      bootstrap
-      bootstrap-datepicker-rails
-      font-awesome-rails
-      simple_form
     debug_inspector (0.0.3)
     decent_decoration (0.1.0)
       decent_exposure (~> 3.0)
@@ -975,7 +975,7 @@ DEPENDENCIES
   bootstrap4-datetime-picker-rails
   byebug
   carrierwave (~> 1.0)
-  date_wrapper
+  coffee-rails
   decent_decoration
   decent_exposure
   devise
