@@ -1,6 +1,22 @@
+# frozen_string_literal: true
+
 class DocumentPolicy < ApplicationPolicy
 
-  permit_user_present_or_owner? :index, :update, :destroy
+  def index?
+    user.present?
+  end
+
+  def create?
+    user.present?
+  end
+
+  def update?
+    user_present_and_owner?
+  end
+
+  def destroy?
+    user_present_and_owner?
+  end
 
   private
 
@@ -11,5 +27,4 @@ class DocumentPolicy < ApplicationPolicy
   def user_present_and_owner?
     user.present? && user == document.user
   end
-
 end

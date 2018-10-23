@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BucketPolicy
+class BucketPolicy < ApplicationPolicy
   def index?
     true
   end
@@ -15,6 +15,12 @@ class BucketPolicy
 
   def destroy?
     return true if user.present? && user == bucket.user
+  end
+
+  private
+
+  def bucket
+    record
   end
 
   private

@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class DocumentDecorator < Draper::Decorator
   delegate_all
   include Draper::LazyHelpers
 
   def document_bucket_name
-    bucket.present? ? "#{bucket.name}" : flash[:notice] = t('shared.not_exist')
-    #bucket.present? ? "#{bucket.name}" : flash[:notice] = t('shared.not_exist', resource: 'Bucket')
+    bucket.present? ? bucket.name.to_s : flash[:notice] = t('shared.not_exist')
   end
-
 end
