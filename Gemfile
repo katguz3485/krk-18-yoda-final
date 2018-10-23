@@ -7,7 +7,6 @@ gem 'aws-sdk', '~> 3'
 gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
-gem 'bootstrap-sass'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'coffee-rails'
@@ -33,7 +32,7 @@ gem 'sidekiq'
 gem 'simple_form'
 gem 'tether-rails'
 gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: %w(mri mingw x64_mingw)

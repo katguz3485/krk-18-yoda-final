@@ -1,9 +1,16 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = document.name
-%p
-  %strong Issue date:
-  = document.issue_date
-= link_to 'Edit', edit_document_path(document)
-= link_to 'Back', documents_path
+-breadcrumb :document, document_path
+%table.table.table-condensed
+  %tbody
+    %tr
+      %td="#{t('documents.columns.name')}"
+      %td= document.name
+    %tr
+      %td="#{t('documents.columns.document_type')}"
+      %td= document.document_type
+    %tr
+      %td="#{t('documents.columns.created_at')}"
+      %td= document.created_at
+
+= link_to 'Edit', edit_document_path(document), class: 'btn btn-success'
+= link_to 'Back', documents_path, class: 'btn btn-success'
+
