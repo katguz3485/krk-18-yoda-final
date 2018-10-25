@@ -1,13 +1,17 @@
-%h1 Listing documents
+%h3 Listing documents
 - breadcrumb :documents, document
-%table.table.table-hover
-  %thead
-    %tr
-      %th= t('documents.columns.name')
-      %th= t('documents.columns.document_type')
-      %th= t('documents.columns.bucket_name')
-      %th= t('shared.actions.actions')
-      %th
-  %tbody
-    =render documents
-= link_to t('shared.add_new_item'), new_document_path, class: 'btn btn-success'
+.row
+  .col-md-12.additional-space
+    = form_tag documents_path, method: :get do
+      .input-group
+        = text_field_tag :search, nil, class: 'form-control', placeholder: 'Search for document'
+        %span.input-group-btn
+          = submit_tag 'Search', class: 'btn btn-primary'
+- if params[:search]
+  = render 'searched_documents_table'
+- else
+  - breadcrumb :documents, document
+  = render 'documents_table'
+
+
+

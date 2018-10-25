@@ -1,0 +1,11 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th= t('documents.columns.name')
+      %th= t('documents.columns.document_type')
+      %th= t('documents.columns.bucket_name')
+      %th= t('shared.actions.actions')
+      %th
+  %tbody
+    = render documents
+= link_to t('shared.add_new_item'), new_document_path, class: 'btn btn-success'

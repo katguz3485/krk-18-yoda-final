@@ -5,6 +5,6 @@ class DocumentDecorator < Draper::Decorator
   include Draper::LazyHelpers
 
   def document_bucket_name
-    bucket.present? ? bucket.name.to_s : flash[:notice] = t('shared.not_exist')
+    bucket.present? ? bucket.name.to_s : bucket.name = t('shared.not_exist')
   end
 end

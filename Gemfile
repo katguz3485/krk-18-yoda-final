@@ -14,11 +14,14 @@ gem 'decent_decoration'
 gem 'decent_exposure'
 gem 'devise'
 gem 'draper'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'figaro'
 gem 'fog-aws', require: true
 gem 'font-awesome-rails'
 gem 'gretel'
 gem 'haml-rails', '~> 1.0'
+gem 'html2haml'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'momentjs-rails'
@@ -42,6 +45,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
+  gem 'elasticsearch-extensions'
   gem 'factory_bot'
   gem 'shoulda-matchers', '~> 3.1'
 end

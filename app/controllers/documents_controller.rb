@@ -9,6 +9,7 @@ class DocumentsController < ApplicationController
 
   def index
     authorize document
+    @search_documents = Document.where('name like?', "%#{params[:search]}%")
   end
 
   def create

@@ -43,8 +43,9 @@ en:
     created: "%{resource} has been created!"
     updated: "%{resource} has been updated!"
     deleted: "%{resource} has been deleted!"
+    no_search_result: "The searched %{resource} does not exist"
     actions:
-      actions: "View/Edit/Delete"
+      actions: "Edit/Delete"
     edit: edit
     show: show
     delete: delete
