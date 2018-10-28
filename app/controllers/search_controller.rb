@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class SearchController < ApplicationController
+
   def search
-    @results = Elasticsearch::Model.search(query, Document).page(params[:page]).records
+    @results = Elasticsearch::Model.search(query, [Document, Bucket]).page(params[:page]).records
   end
 
   private

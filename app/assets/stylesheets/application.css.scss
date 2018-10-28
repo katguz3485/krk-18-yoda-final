@@ -5,3 +5,14 @@
 @import "font-awesome";
 
 
+main {
+  @extend .container;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 50px; // accommodate the navbar
+  padding: 0; // accommodate the navbar
+
+  .container {
+    padding-top: 50px;
+  }
+}

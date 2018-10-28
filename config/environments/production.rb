@@ -42,10 +42,11 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
+
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 587,
-    domain:               'krk-18-yoda.herokuapp.com',
+    domain:               'herokuapp.com',
     user_name:            Rails.application.credentials.dig(:sendgrid, :username),
     password:             Rails.application.credentials.dig(:sendgrid, :password),
     authentication:       'plain',

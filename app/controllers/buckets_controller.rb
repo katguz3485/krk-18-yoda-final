@@ -2,7 +2,7 @@
 
 class BucketsController < ApplicationController
   expose(:bucket, attibutes: :bucket_params)
-  expose :buckets, -> { Bucket.all }
+  expose :buckets, -> {Bucket.all}
 
   def create
     if bucket.save
