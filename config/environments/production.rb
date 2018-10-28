@@ -24,6 +24,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   #config.assets.js_compressor = :uglifier
+
   config.assets.js_compressor = Uglifier.new(harmony: true)
 
   # config.assets.css_compressor = :sass
@@ -41,7 +42,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DocumentsController < ApplicationController
+
   before_action :authenticate_user!, except: [:index, :show]
 
   expose(:document, attibutes: :document_params)
