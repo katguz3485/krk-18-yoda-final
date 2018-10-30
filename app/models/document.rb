@@ -4,12 +4,7 @@ require 'elasticsearch/model'
 
 class Document < ApplicationRecord
   include Searchable
-
-  #   mapping dynamic: false do
-  #     indexes :name, type: :text, analyzer: :english
-  #   end
-
-  belongs_to :bucket
   mount_uploader :file, FileUploader
+  belongs_to :bucket
   delegate :user, to: :bucket
 end

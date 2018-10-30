@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   expose(:document, attibutes: :document_params)
-  expose :documents, -> { Document.all }
+  expose_decorated :documents, -> { Document.all }
   expose :buckets, -> { Bucket.all }
 
   def index
@@ -14,8 +14,10 @@ class DocumentsController < ApplicationController
   end
 
   def create
+    authorize document
+    document = Document.new(document_params)
+    document.bucket = Bucket.first
     if document.save
-      authorize document
       perform_upload_file_confirmation(document.id)
       redirect_to dashboard_path, notice: I18n.t('shared.created', resource: 'Document')
     end
@@ -36,7 +38,7 @@ class DocumentsController < ApplicationController
     document.destroy
     authorize document
     respond_to do |format|
-      format.html { redirect_to Documents_url, notice: I18n.t('shared.deleted', resource: 'Document') }
+      format.html { redirect_to documents_url, notice: I18n.t('shared.deleted', resource: 'Document') }
       format.json { head :no_content }
     end
   end
