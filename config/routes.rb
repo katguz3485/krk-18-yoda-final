@@ -18,8 +18,13 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :documents
+
   get 'digitize', to: 'documents#new'
   get 'dashboard', to: 'documents#index'
   get '/documents/show', to: 'documents#show'
   resources :buckets
+
+  resources :documents do
+    resource :downloads, only: [:show], controller: "documents/downloads"
+  end
 end

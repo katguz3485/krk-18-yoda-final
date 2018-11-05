@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class
-Bucket < ApplicationRecord
-  belongs_to :user, optional: true
+class Bucket < ApplicationRecord
+  belongs_to :user
   has_many :documents
   validates :name, presence: true
 end

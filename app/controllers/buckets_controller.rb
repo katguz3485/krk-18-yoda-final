@@ -2,11 +2,13 @@
 
 class BucketsController < ApplicationController
   expose(:bucket, attibutes: :bucket_params)
-  expose :buckets, -> {Bucket.all}
+
+  expose :buckets, -> { current_user.buckets }
 
   def create
+    bucket = current_user.buckets.new(bucket_params)
     if bucket.save
-      redirect_to root_path, notice: I18n.t('shared.created', resource: 'Bucket')
+      redirect_to buckets_path, notice: I18n.t('shared.created', resource: 'Bucket')
     else
       render :new
     end
@@ -22,7 +24,7 @@ class BucketsController < ApplicationController
 
   def destroy
     if bucket.destroy
-      redirect_to root_path, notice: I18n.t('shared.deleted', resource: 'Bucker')
+      redirect_to buckets_path, notice: I18n.t('shared.deleted', resource: 'Bucker')
     else
       render :index
     end

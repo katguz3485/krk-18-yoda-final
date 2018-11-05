@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'elasticsearch/model'
 
 class Document < ApplicationRecord
@@ -8,3 +6,9 @@ class Document < ApplicationRecord
   belongs_to :bucket
   delegate :user, to: :bucket
 end
+
+
+
+
+
+

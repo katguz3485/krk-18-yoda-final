@@ -1,32 +1,28 @@
 # frozen_string_literal: true
 
 class DocumentsController < ApplicationController
-
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   expose(:document, attibutes: :document_params)
-  expose_decorated :documents, -> { Document.all }
-  expose :buckets, -> { Bucket.all }
+  expose_decorated :documents, -> { current_user.documents }
+  expose :buckets, -> { current_user.buckets }
 
   def index
-    authorize document
     @search_documents = Document.where('name like?', "%#{params[:search]}%")
   end
 
   def create
-    authorize document
-    document = Document.new(document_params)
-    document.bucket = Bucket.first
     if document.save
       perform_upload_file_confirmation(document.id)
       redirect_to dashboard_path, notice: I18n.t('shared.created', resource: 'Document')
     end
   end
 
+  def edit; end
+
   def update
     respond_to do |format|
       if document.update(document_params)
-        authorize document
         format.html { redirect_to document, notice: I18n.t('shared.updated', resource: 'Document') }
       else
         format.html { render :edit }
@@ -36,11 +32,14 @@ class DocumentsController < ApplicationController
 
   def destroy
     document.destroy
-    authorize document
     respond_to do |format|
-      format.html { redirect_to documents_url, notice: I18n.t('shared.deleted', resource: 'Document') }
+      format.html { redirect_to document_path, notice: I18n.t('shared.deleted', resource: 'Document') }
       format.json { head :no_content }
     end
+  end
+
+  def download
+    redirect_to document.download_url
   end
 
   private
@@ -52,4 +51,10 @@ class DocumentsController < ApplicationController
   def perform_upload_file_confirmation(document_id)
     ::FileUploadWorker.perform_async(document_id)
   end
+
+
+  def download
+    redirect_to document.download_url
+  end
+
 end

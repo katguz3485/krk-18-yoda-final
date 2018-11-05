@@ -2,7 +2,7 @@
 
 class DocumentPolicy < ApplicationPolicy
   def index?
-    user.present?
+    user_present_and_owner?
   end
 
   def create?

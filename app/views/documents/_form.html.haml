@@ -1,4 +1,4 @@
-= simple_form_for document do |f|
+= simple_form_for document, html: { multipart: true} do |f|
   = f.input :file, as: :file
   = f.input :name
   = f.input :document_type

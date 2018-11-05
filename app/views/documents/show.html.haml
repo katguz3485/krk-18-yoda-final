@@ -10,6 +10,9 @@
     %tr
       %td="#{t('documents.columns.created_at')}"
       %td= document.created_at
+    %tr
+      %td="#{t('documents.columns.url')}"
+      %td= link_to 'Download', document.file_url, class: 'btn btn-info'
 
 = link_to 'Edit', edit_document_path(document), class: 'btn btn-success'
 = link_to 'Back', documents_path, class: 'btn btn-success'
