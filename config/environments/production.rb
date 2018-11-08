@@ -43,10 +43,16 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :amazon
 
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'frozen-fortress-80258.herokuapp.com', :protocol => 'https'}
+
+
+
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 587,
-    domain:               'krk-18-yoda.herokuapp.com',
+    domain:               'frozen-fortress-80258.herokuapp.com',
     user_name:            Rails.application.credentials.dig(:sendgrid, :username),
     password:             Rails.application.credentials.dig(:sendgrid, :password),
     authentication:       'plain',

@@ -5,6 +5,6 @@ class FileUploadMailer < ApplicationMailer
     @document = Document.find(document_id)
     @user = @document.user
 
-    mail(to: 'ashente@gmail.com', subject: 'Your file was uploaded successfully')
+    mail(to: @user.email, subject: 'Your file was uploaded successfully')
   end
 end
