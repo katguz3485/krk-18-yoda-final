@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 ruby '2.5.1'
-
 gem 'aws-sdk', '~> 3'
 gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -14,9 +13,11 @@ gem 'coffee-rails'
 gem 'decent_decoration'
 gem 'decent_exposure'
 gem 'devise'
+gem 'devise-specs'
 gem 'draper'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'figaro'
 gem 'fog-aws', require: true
 gem 'font-awesome-rails'
@@ -49,9 +50,14 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'elasticsearch-extensions'
   gem 'factory_bot'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'shoulda'
   gem 'shoulda-matchers', '~> 3.1'
 end
 

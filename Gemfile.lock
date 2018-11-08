@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 62b5857970218fc7615deb12d844fc4645c4c69f
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,6 +54,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
@@ -668,10 +678,22 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.3.0)
+    capybara (3.5.1)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      xpath (~> 3.1)
+    capybara-screenshot (1.0.21)
+      capybara (>= 1.0, < 4)
+      launchy
     carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     climate_control (0.2.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -696,6 +718,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-specs (0.0.4)
+      devise (~> 4.2)
     diff-lcs (1.3)
     draper (3.0.1)
       actionpack (~> 5.0)
@@ -793,6 +817,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (2.1.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -859,6 +885,7 @@ GEM
       method_source (~> 0.9.0)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (3.0.3)
     puma (3.12.0)
     pundit (2.0.0)
       activesupport (>= 3.0.0)
@@ -937,6 +964,7 @@ GEM
     ruby_http_client (3.3.0)
     ruby_parser (3.11.0)
       sexp_processor (~> 4.9)
+    rubyzip (1.2.1)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -951,11 +979,18 @@ GEM
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
+    selenium-webdriver (3.14.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2)
     sendgrid-ruby (5.3.0)
       ruby_http_client (~> 3.3.0)
       sinatra (>= 1.4.7, < 3)
     sexp_processor (4.11.0)
     shellany (0.0.1)
+    shoulda (3.6.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (~> 3.0)
+    shoulda-context (1.2.2)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
     sidekiq (5.2.2)
@@ -1008,6 +1043,8 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    xpath (3.1.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -1021,17 +1058,21 @@ DEPENDENCIES
   bootstrap4-datetime-picker-rails
   byebug
   cancancan (~> 2.2)
+  capybara
+  capybara-screenshot
   carrierwave (~> 1.0)
   coffee-rails
   database_cleaner
   decent_decoration
   decent_exposure
   devise
+  devise-specs
   draper
   elasticsearch-extensions
   elasticsearch-model
   elasticsearch-rails
   factory_bot
+  faker!
   figaro
   fog-aws
   font-awesome-rails
@@ -1041,6 +1082,7 @@ DEPENDENCIES
   html2haml
   jbuilder (~> 2.5)
   jquery-rails
+  launchy
   listen (>= 3.0.5, < 3.2)
   momentjs-rails
   omniauth-facebook
@@ -1055,7 +1097,9 @@ DEPENDENCIES
   rspec-rails (~> 3.7)
   sass-rails
   sassc
+  selenium-webdriver
   sendgrid-ruby
+  shoulda
   shoulda-matchers (~> 3.1)
   sidekiq
   simple_form
