@@ -24,6 +24,9 @@ Devise.setup do |config|
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
+  config.mailer = 'Devise::Mailer'
+
+  config.confirmation_keys = [:email]
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
@@ -286,6 +289,9 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   #
-  config.secret_key = '72e23584a0c26860677915062ba05dbc2000ebd3d8214e6011132617fe1c6c50c1fbe509250c95cf7fcd97902a9614f1f7ee661ba6a173c4a06a0d02380e618f'
+
+  config.secret_key = Rails.application.credentials.dig(:devise, :secret_key)
+
+
 
 end
