@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DocumentPolicy < ApplicationPolicy
+
   def index?
     user_present_and_owner?
   end

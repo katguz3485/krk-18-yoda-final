@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 ruby '2.5.1'
+
 gem 'aws-sdk', '~> 3'
 gem 'binding_of_caller'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -13,6 +14,7 @@ gem 'coffee-rails'
 gem 'decent_decoration'
 gem 'decent_exposure'
 gem 'devise'
+gem 'devise-bootstrap-views'
 gem 'devise-specs'
 gem 'draper'
 gem 'elasticsearch-model'
@@ -24,6 +26,7 @@ gem 'font-awesome-rails'
 gem 'gretel'
 gem 'haml-rails', '~> 1.0'
 gem 'html2haml'
+gem 'devise-i18n'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'momentjs-rails'

@@ -9,5 +9,4 @@ class DocumentDecorator < Draper::Decorator
   end
 
 
-
 end
