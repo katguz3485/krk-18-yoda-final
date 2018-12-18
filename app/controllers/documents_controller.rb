@@ -52,9 +52,7 @@ class DocumentsController < ApplicationController
     ::FileUploadWorker.perform_async(document_id)
   end
 
-
   def download
     redirect_to document.download_url
   end
-
 end

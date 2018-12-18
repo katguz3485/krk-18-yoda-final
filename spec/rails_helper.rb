@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -11,12 +13,11 @@ require 'database_cleaner'
 require 'shoulda-matchers'
 require 'shoulda'
 
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 # Add additional requires below this line. Rails is not loaded until this point!
-
 
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
@@ -58,8 +59,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-
-
 # frozen_string_literal: true
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -84,9 +83,8 @@ RSpec.configure do |config|
   config.include Capybara
   config.include Capybara::DSL
   config.include RSpec::Matchers
-  #config.include Features::SessionHelpers, type: :feature
+  # config.include Features::SessionHelpers, type: :feature
   config.include Devise::Test::ControllerHelpers, type: :controller
-
 
   config.infer_spec_type_from_file_location!
 

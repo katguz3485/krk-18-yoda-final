@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'elasticsearch/model'
 
 class Document < ApplicationRecord
@@ -5,12 +7,4 @@ class Document < ApplicationRecord
   mount_uploader :file, FileUploader
   belongs_to :bucket
   delegate :user, to: :bucket
-
-
 end
-
-
-
-
-
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :document do
     name { Faker::Name.name }
@@ -6,5 +8,4 @@ FactoryBot.define do
     bucket_id '1'
     date '2018-11-06'
   end
-
 end

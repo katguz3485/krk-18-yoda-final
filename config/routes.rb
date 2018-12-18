@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   resources :buckets
 
   resources :documents do
-    resource :downloads, only: [:show], controller: "documents/downloads"
+    resource :downloads, only: [:show], controller: 'documents/downloads'
   end
 end
