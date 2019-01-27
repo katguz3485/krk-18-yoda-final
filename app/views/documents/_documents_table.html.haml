@@ -7,5 +7,16 @@
       %th= t('shared.actions.actions')
       %th
   %tbody
-    = render documents
+    - current_user.documents.each do |document|
+      %tr
+        %td=  link_to document.name, document_path(document)
+        %td= document.document_type
+        %td= document.decorate.document_bucket_name
+        %td
+          = link_to edit_document_path(document), {title: t('shared.edit')} do
+            %button.btn.btn-success
+              = fa_icon "edit"
+          = link_to document_path(document), {method: :delete, title: t('shared.delete')} do
+            %button.btn.btn-success
+              = fa_icon "trash"
 = link_to t('shared.add_new_item'), new_document_path, class: 'btn btn-success'
