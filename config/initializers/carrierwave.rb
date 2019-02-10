@@ -10,7 +10,7 @@ if Rails.env.test? or Rails.env.cucumber?
 else
   CarrierWave.configure do |config|
     config.fog_public = false
-    config.fog_authenticated_url_expiration = 5
+    config.fog_authenticated_url_expiration = 100
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
         provider: 'AWS',

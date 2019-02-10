@@ -5,11 +5,14 @@ class Documents::DownloadsController < ApplicationController
 
   def show
     redirect_to @document.file.file.authenticated_url
+    binding.pry
   end
 
   private
 
   def set_document
+
     @document = current_user.documents.find(params[:id])
+
   end
 end

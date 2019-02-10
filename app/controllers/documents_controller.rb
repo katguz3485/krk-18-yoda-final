@@ -8,10 +8,11 @@ class DocumentsController < ApplicationController
   expose :buckets, -> { current_user.buckets }
 
   def index
-    @search_documents = Document.where('name like?', "%#{params[:search]}%")
+    @search_documents = Document.where("name = ?", params[:search])
   end
 
   def create
+
     if document.save
       perform_upload_file_confirmation(document.id)
       redirect_to dashboard_path, notice: I18n.t('shared.created', resource: 'Document')
@@ -38,9 +39,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def download
-    redirect_to document.download_url
-  end
 
   private
 
@@ -54,5 +52,6 @@ class DocumentsController < ApplicationController
 
   def download
     redirect_to document.download_url
+    binding.pry
   end
 end
